@@ -98,24 +98,3 @@ orders_schema = OrderSchema(many=True)
 
 product_schema = ProductSchema()
 products_schema = ProductSchema(many=True)
-
-
-#======= Routes =======#
-
-@app.route('/users', methods=['POST'])
-def create_user():
-    try:
-        user_data = user_schema.load(request.json)
-    except ValidationError as e:
-        return jsonify(e.messages), 400
-    
-    new_user = User(
-        name=user_data['name'],
-        address=user_data['address'],
-        email=user_data['email']
-    )
-    
-    db.session.add(new_user)
-    db.session.commit()
-    
-    return user_schema.jsonify(new_user), 201
