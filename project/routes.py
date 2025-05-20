@@ -51,7 +51,6 @@ def delete_user(id):
     db.session.commit()
     return jsonify({"message": "User deleted"}), 200
 
-
 # =====================================
 #            PRODUCTS
 # =====================================
