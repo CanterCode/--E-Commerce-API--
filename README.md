@@ -64,7 +64,6 @@ This API allows you to:
 - Install dependencies  
   `pip install -r requirements.txt`
 - Make sure MySQL is running and the `ecommerce_api` database is created
-- Update the database URI in your `app.py`  
   `app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:<YOUR_PASSWORD>@localhost/ecommerce_api'`
 - Run the Flask app  
   `flask --app app run`
