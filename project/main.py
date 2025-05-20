@@ -15,7 +15,7 @@ from models import db, ma, User, Product, Order, user_schema, users_schema, prod
 app = Flask(__name__)
 
 # MySQL database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:JMC100@localhost/ecommerce_api'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:JMC100@localhost/ecommerce_api'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize SQLAlchemy and Marshmallow
@@ -27,4 +27,5 @@ app.register_blueprint(routes)
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
+    print("🚀 Starting Flask server...")  # <-- Add this print to verify it's running
     app.run(debug=True)

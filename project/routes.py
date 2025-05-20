@@ -31,10 +31,9 @@ def create_user():
     except ValidationError as e:
         return jsonify(e.messages), 400
 
-    new_user = User(**user_data)
-    db.session.add(new_user)
+    db.session.add(user_data)
     db.session.commit()
-    return user_schema.jsonify(new_user), 201
+    return user_schema.jsonify(user_data), 201
 
 # UPDATE a user by ID
 @routes.route('/users/<int:id>', methods=['PUT'])
