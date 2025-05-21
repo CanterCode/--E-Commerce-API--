@@ -27,5 +27,5 @@ app.register_blueprint(routes)
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    print("🚀 Starting Flask server...")  # <-- Add this print to verify it's running
+    print("🚀 Starting Flask server...")
     app.run(debug=True)
